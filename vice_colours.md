@@ -1,0 +1,15 @@
+let s:white = [231, "#ffffff"]                                                                                                                                                                                 
+let s:grey0 = [102, "#878787"] "lightest grey                                                                                                                                                                  
+let s:grey1 = [238, "#444444"] "mid grey                                                                                                                                                                       
+let s:grey2 = [235, "#262626"] "darkest grey                                                                                                                                                                   
+let s:pink = [212, "#ff87d7"]                                                                                                                                                                                  
+let s:light-pink = [218, "#ffafd7"]                                                                                                                                                                            
+let s:hot-pink = [201, "#ff00ff" ]                                                                                                                                                                             
+let s:red = [197, "#ff005f" ]                                                                                                                                                                                  
+let s:light-blue = [159, "#afffff"]                                                                                                                                                                            
+let s:light-yellow = [229, "#ffffaf"]                                                                                                                                                                          
+let s:mint = [158, "#afffd7"]                                                                                                                                                                                  
+let s:dark-mint = [49, "#00ffaf"]                                                                                                                                                                              
+let s:lavender = [183, "#d7afff"]                                                                                                                                                                              
+let s:gray-purple = [146, "#afafd7"]                                                                                                                                                                           
+let s:dark-lavender = [97, "#875faf"]   
