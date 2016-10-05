@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/phat_sumo/.emacs.d/elpa'
+let g:netrw_dirhist_2='/home/phat_sumo/.emacs.d'
+let g:netrw_dirhist_3='/home/phat_sumo'
+let g:netrw_dirhist_4='/home/phat_sumo/.i3blocksconf'
+let g:netrw_dirhist_5='/home/phat_sumo/.ssh'
+let g:netrw_dirhist_6='/var/lib/pacman/local'
+let g:netrw_dirhist_7='/home/phat_sumo/.vim/bundle'
+let g:netrw_dirhist_8='/home/phat_sumo/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_9='/home/phat_sumo/Documents/Projects/static-site'
