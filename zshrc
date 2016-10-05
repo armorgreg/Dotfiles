@@ -1,1 +1,1 @@
-.zshrc
+/home/phat_sumo/.zshrc
