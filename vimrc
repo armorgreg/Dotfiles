@@ -1,12 +1,10 @@
 set nocompatible
 
+
 " Let Vundle handle all vim plugins.
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" Enable sneak movement on s
-Plugin 'justinmk/vim-sneak'
-
+" Enable sneak movement on s Plugin 'justinmk/vim-sneak'
 " On-the-fly syntax checks.
 Plugin 'maralla/validator.vim'
 
@@ -31,6 +29,28 @@ Plugin 'pangloss/vim-javascript'
 " Directory exploration
 Plugin 'scrooloose/nerdtree'
 
+" Minimap plugin!
+Plugin 'severin-lemaignan/vim-minimap'
+
+" Autocomment and remover
+Plugin 'tomtom/tcomment_vim'
+
+" Better searching with ack/ag
+Plugin 'mileszs/ack.vim'
+
+" View git changes in project
+Plugin 'airblade/vim-gitgutter'
+
+" Vala syntax highlighting
+Plugin 'arrufat/vala.vim'
+
+"Smooth scrolling
+Plugin 'yuttie/comfortable-motion.vim'
+
+" Pretty lines
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -41,10 +61,10 @@ set autoindent
 syntax on
 
 " Persistent undo
- set undofile
- set undodir=!/.vim/undodir
+set undofile
+set undodir=!/.vim/undodir
 
-"Enable mouse support
+" Enable mouse support
 set mouse=a
 
 " Use more advanced encryption for VimCrypt.
@@ -74,7 +94,7 @@ set wrap
 set textwidth=79
 
 " Let vim decide how to format
-set formatoptions=tcqrn1
+set formatoptions=tqn1
 
 " Expandtab inserts spaces when Tab is pressed. 2 spaces per tab.
 set expandtab
@@ -128,7 +148,6 @@ vnoremap <F1> :set invfullscreen<CR>
 " Enter inserts new line
 noremap <CR> o<Esc>
 
-
 " Fixes weird background issues.
 if &term =~ '256color'
     set t_ut=
@@ -146,25 +165,45 @@ colo vice
 
 " Default behaviour for vim-sneak and other plugins.
 let g:sneak#s_next = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:gitgutter_enabled = 0
+let g:minimap_toggle='<leader>mm'
+let g:minimap_highlight='visual'
 
 " Assign Space to leader key. Gloriousness ensues.
 let mapleader = "\<Space>"
 
+" Quick saving / exiting
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>! :q!<CR>
+
+" Faster buffer mode
 nnoremap <Leader>b <C-w>
+
+" Toggle NERDTree
 nnoremap <Leader>f :NERDTreeToggle<CR>
-nnoremap <Leader>r viwp
-nnoremap <Leader>y yiw
-nnoremap <Leader>C :make ./out<CR>
+
+" Fast replace
+nnoremap <Leader>r viw"np
+nnoremap <Leader>y "nyiw
+
+" Quick compile
+nnoremap <Leader>C :!make<CR>
+nnoremap <Leader>R :!./run<CR>
+
+" Edit todo!
+nnoremap <Leader>todo :vs ~/Documents/Drive/TODO/todo.md<CR>
+
 " Convert C-style comments into cout statements, and vice versa.
-nnoremap <Leader>d mn^vf/lccout << "<esc>A\n";<esc>`n:delmarks n<CR><C-l>
+nnoremap <Leader>d mn^vf/lcstd::cout << "<esc>A\n";<esc>`n:delmarks n<CR><C-l>
 nnoremap <Leader>D mn^cf"// <esc>f\d$`n:delmarks n<CR><C-l>
+
+nnoremap <Leader>gg :GitGutterToggle<CR>
+nnoremap <Leader>a :AirlineToggle<CR>
 
 " Remap w!! to sudo-edit the file, in case you forget.
 cmap w!! w !sudo tee % >/dev/null
@@ -172,10 +211,31 @@ cmap w!! w !sudo tee % >/dev/null
 " Let vim's unnamed buffer interact with the system clipboard.
 set clipboard=unnamedplus,autoselect,unnamed
 
+" Don't pull carraige returns in visual mode
 vnoremap $ $h
 
+" Swap ' and ` to prefer accuracy with marks
 nnoremap ' `
 nnoremap ` '
+
+" Disable valadoc syntax highlight
+"let vala_ignore_valadoc = 1
+
+" Enable comment strings
+let vala_comment_strings = 1
+
+" Highlight space errors
+" let vala_space_errors = 1
+" Disable trailing space errors
+"let vala_no_trail_space_error = 1
+" Disable space-tab-space errors
+let vala_no_tab_space_error = 1
+
+" Minimum lines used for comment syncing (default 50)
+"let vala_minlines = 120
+
+let g:airline_theme='luna'
+
 
 
 

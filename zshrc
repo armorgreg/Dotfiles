@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 #
-export ZSH=/home/phat_sumo/.oh-my-zsh
-export DEFAULT_USER="$USER"
+export ZSH=/home/phat_sumo/.oh-my-zsh export DEFAULT_USER="$USER"
 export EDITOR=vim
 
 # Set name of the theme to load.
@@ -52,7 +51,7 @@ ZSH_THEME="agnoster_miami"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode fasd sudo)
+plugins=(git npm vi-mode fasd sudo archlinux)
 
 # User configuration
 
@@ -89,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi="vim"
 alias h="cd ~"
 alias cl="clear"
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-wcomp zsh-ccomp-install zsh-wcomp-install)"
+eval "$(fasd --init)"
 alias sus="systemctl suspend"
 alias couch="/bin/bash ~/Documents/Scripts/couch_monitor.sh"
 alias left="/bin/bash ~/Documents/Scripts/left_monitor.sh"
@@ -97,15 +96,26 @@ alias right="/bin/bash ~/Documents/Scripts/right_monitor.sh"
 alias backg="/bin/bash ~/Documents/Scripts/back.sh"
 eval $(thefuck --alias)
 alias backsafe="/bin/bash ~/Documents/Scripts/backsafe.sh"
-alias run="exec ./a.out"
 alias clipb="xclip -selection c"
-alias bright="~/Documents/Scripts/backlight.sh"
 alias lc="sl"
 alias pacsize="expac -s -H M '%m\t%n'"
 alias v="f -e vim"
 alias dup='nohup i3-sensible-terminal --working-directory $PWD >&/dev/null'
 alias updatezsh="upgrade_oh_my_zsh"
+alias addf="vim CMakeLists.txt"
+alias touchscreen="/bin/bash ~/Documents/Scripts/touchscreen.sh"
+alias red="$(which zsh) ~/Documents/Scripts/redshifting.sh"
+alias cleardown="rm -rf ~/Downloads/*"
+alias godown="cd ~/Downloads"
+alias todo="vim ~/Documents/Drive/TODO/todo.md"
+alias clk="tty-clock -b"
+alias cll="clear && ls"
+
+text () {
+  curl http://textbelt.com/text -d number=$1 -d "message=$2" | grep success;
+  echo $2; 
+}
 
 
-
-export BACKGROUND="/home/phat_sumo/Pictures/Backgrounds/bojack.jpg"
+export BACKGROUND="/home/phat_sumo/Pictures/Backgrounds/vaporwave_delorean.png"
+bindkey '^[[Z' reverse-menu-complete
