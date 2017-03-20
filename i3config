@@ -213,12 +213,15 @@ bindsym $mod+Control+Shift+8 exec derp 16
 bindsym $mod+Control+Shift+9 exec derp 18
 bindsym $mod+Control+Shift+0 exec derp 20
 
+bindsym $mod+Control+Shift+equal exec derp inc
+bindsym $mod+Control+Shift+minus exec derp dec
+
 # keyboard brightness control
 bindsym XF86KbdBrightnessUp exec keebs inc
 bindsym XF86KbdBrightnessDown exec keebs dec
 
 # nmcli_dmenu
-bindsym $mod+Control+Shift+d exec nmcli_dmenu
+bindsym $mod+Control+Shift+d exec networkmanager_dmenu
 
 # i3-gaps settings
 set $default_gaps_inner 10

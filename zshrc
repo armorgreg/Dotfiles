@@ -90,10 +90,6 @@ alias h="cd ~"
 alias cl="clear"
 eval "$(fasd --init)"
 alias sus="systemctl suspend"
-alias couch="/bin/bash ~/Documents/Scripts/couch_monitor.sh"
-alias left="/bin/bash ~/Documents/Scripts/left_monitor.sh"
-alias right="/bin/bash ~/Documents/Scripts/right_monitor.sh"
-alias backg="/bin/bash ~/Documents/Scripts/back.sh"
 eval $(thefuck --alias)
 alias backsafe="/bin/bash ~/Documents/Scripts/backsafe.sh"
 alias clipb="xclip -selection c"
@@ -103,13 +99,14 @@ alias v="f -e vim"
 alias dup='nohup i3-sensible-terminal --working-directory $PWD >&/dev/null'
 alias updatezsh="upgrade_oh_my_zsh"
 alias addf="vim CMakeLists.txt"
-alias touchscreen="/bin/bash ~/Documents/Scripts/touchscreen.sh"
 alias red="$(which zsh) ~/Documents/Scripts/redshifting.sh"
 alias cleardown="rm -rf ~/Downloads/*"
 alias godown="cd ~/Downloads"
 alias todo="vim ~/Documents/Drive/TODO/todo.md"
 alias clk="tty-clock -b"
 alias cll="clear && ls"
+alias sinks="/bin/bash ~/Documents/Scripts/movesinks.sh"
+alias reloadzsh=". ~/.zshrc"
 
 text () {
   curl http://textbelt.com/text -d number=$1 -d "message=$2" | grep success;

@@ -39,8 +39,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'mileszs/ack.vim'
 
 " View git changes in project
-Plugin 'airblade/vim-gitgutter'
-
+Plugin 'airblade/vim-gitgutter' 
 " Vala syntax highlighting
 Plugin 'arrufat/vala.vim'
 
@@ -188,8 +187,8 @@ nnoremap <Leader>b <C-w>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 
 " Fast replace
-nnoremap <Leader>r viw"np
 nnoremap <Leader>y "nyiw
+nnoremap <Leader>r viw"np
 
 " Quick compile
 nnoremap <Leader>C :!make<CR>
@@ -234,7 +233,7 @@ let vala_no_tab_space_error = 1
 " Minimum lines used for comment syncing (default 50)
 "let vala_minlines = 120
 
-let g:airline_theme='luna'
+let g:airline_theme='vice'
 
 
 
