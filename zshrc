@@ -3,6 +3,8 @@
 export ZSH=/home/phat_sumo/.oh-my-zsh export DEFAULT_USER="$USER"
 export EDITOR=vim
 
+unsetopt prompt_cr prompt_sp
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -55,7 +57,7 @@ plugins=(git npm vi-mode fasd sudo archlinux)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,9 +91,8 @@ alias vi="vim"
 alias h="cd ~"
 alias cl="clear"
 eval "$(fasd --init)"
-alias sus="systemctl suspend"
 eval $(thefuck --alias)
-alias backsafe="/bin/bash ~/Documents/Scripts/backsafe.sh"
+alias backsafe="/bin/bash ~/Documents/scripts/backsafe.sh"
 alias clipb="xclip -selection c"
 alias lc="sl"
 alias pacsize="expac -s -H M '%m\t%n'"
@@ -99,14 +100,16 @@ alias v="f -e vim"
 alias dup='nohup i3-sensible-terminal --working-directory $PWD >&/dev/null'
 alias updatezsh="upgrade_oh_my_zsh"
 alias addf="vim CMakeLists.txt"
-alias red="$(which zsh) ~/Documents/Scripts/redshifting.sh"
+alias red="$(which zsh) ~/Documents/scripts/redshifting.sh"
 alias cleardown="rm -rf ~/Downloads/*"
 alias godown="cd ~/Downloads"
-alias todo="vim ~/Documents/Drive/TODO/todo.md"
-alias clk="tty-clock -b"
+alias todo="vim ~/Documents/drive/TODO/todo.md"
+alias clk="tty-clock -btc"
 alias cll="clear && ls"
-alias sinks="/bin/bash ~/Documents/Scripts/movesinks.sh"
+alias sinks="/bin/bash ~/Documents/scripts/movesinks.sh"
 alias reloadzsh=". ~/.zshrc"
+alias bc="bc -q"
+alias music="ncmpcpp"
 
 text () {
   curl http://textbelt.com/text -d number=$1 -d "message=$2" | grep success;

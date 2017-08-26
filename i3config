@@ -121,6 +121,7 @@ bar {
         hidden_state hide
         modifier Mod1
         tray_output eDP-1
+        font pango:Bitstream Vera Sans Mono Roman 8
 
         status_command i3blocks -c ~/.i3blocks.conf
   colors {
@@ -200,7 +201,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 # Shortcut for screenlock
 bindsym $mod+Control+semicolon exec pslimlock
 # Shortcut for suspend + screenlock
-bindsym $mod+Control+Shift+semicolon exec pslimlock | systemctl suspend
+bindsym $mod+Control+Shift+semicolon exec systemctl suspend && pslimlock
 
 bindsym $mod+Control+Shift+1 exec derp 2
 bindsym $mod+Control+Shift+2 exec derp 4
@@ -242,5 +243,5 @@ exec guake
 exec compton -b
 exec couch
 exec --no-startup-id nm-applet
-exec /home/phat_sumo/Documents/Scripts/back.sh
+exec /home/phat_sumo/Documents/scripts/back.sh
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

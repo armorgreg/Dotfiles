@@ -1,18 +1,17 @@
 set nocompatible
 
-
 " Let Vundle handle all vim plugins.
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" Enable sneak movement on s Plugin 'justinmk/vim-sneak'
+
+" Enable sneak movement on s 
+Plugin 'justinmk/vim-sneak'
+
+" Replace word with innamed register
+Plugin 'vim-scripts/ReplaceWithRegister'
+
 " On-the-fly syntax checks.
 Plugin 'maralla/validator.vim'
-
-" Vim autocomplete
-Plugin 'Valloric/YouCompleteMe'
-
-" Generate YCM-configs.
-Plugin 'rdnetto/YCM-Generator'
 
 " Autocompletion for C/C++.
 Plugin 'Rip-Rip/clang_complete'
@@ -35,13 +34,23 @@ Plugin 'severin-lemaignan/vim-minimap'
 " Autocomment and remover
 Plugin 'tomtom/tcomment_vim'
 
+" New verb- change surrounding item
+Plugin 'tpope/vim-surround'
+
 " Better searching with ack/ag
 Plugin 'mileszs/ack.vim'
 
 " View git changes in project
 Plugin 'airblade/vim-gitgutter' 
+
 " Vala syntax highlighting
 Plugin 'arrufat/vala.vim'
+
+" Allow plugins to opt into repeatability
+Plugin 'tpope/vim-repeat'
+
+" Align code easily
+Plugin 'godlygeek/tabular'
 
 "Smooth scrolling
 Plugin 'yuttie/comfortable-motion.vim'
@@ -49,6 +58,9 @@ Plugin 'yuttie/comfortable-motion.vim'
 " Pretty lines
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" Typescript highlighting
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
@@ -90,7 +102,7 @@ set encoding=utf-8
 set wrap
 
 " Set specific width
-set textwidth=79
+set textwidth=80
 
 " Let vim decide how to format
 set formatoptions=tqn1
@@ -154,13 +166,10 @@ endif
 
 set t_Co=256
 
-" Uncomment to set up Solarized colorschemes.
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-
-" More colour shit.
+" Get a dank colourscheme
 set background=dark
 colo vice
+let g:airline_theme='vice'
 
 " Default behaviour for vim-sneak and other plugins.
 let g:sneak#s_next = 1
@@ -170,8 +179,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:gitgutter_enabled = 0
 let g:minimap_toggle='<leader>mm'
 let g:minimap_highlight='visual'
+let g:airline#extensions#whitespace#enabled = 0
 
-" Assign Space to leader key. Gloriousness ensues.
+" Assign Space to leader key.
 let mapleader = "\<Space>"
 
 " Quick saving / exiting
@@ -197,12 +207,15 @@ nnoremap <Leader>R :!./run<CR>
 " Edit todo!
 nnoremap <Leader>todo :vs ~/Documents/Drive/TODO/todo.md<CR>
 
-" Convert C-style comments into cout statements, and vice versa.
+" Convert c++ comments into cout statements, and vice versa.
 nnoremap <Leader>d mn^vf/lcstd::cout << "<esc>A\n";<esc>`n:delmarks n<CR><C-l>
 nnoremap <Leader>D mn^cf"// <esc>f\d$`n:delmarks n<CR><C-l>
 
 nnoremap <Leader>gg :GitGutterToggle<CR>
 nnoremap <Leader>a :AirlineToggle<CR>
+
+" Reload .vimrc while editing it
+nnoremap <Leader>vim :so %<CR>
 
 " Remap w!! to sudo-edit the file, in case you forget.
 cmap w!! w !sudo tee % >/dev/null
@@ -233,8 +246,7 @@ let vala_no_tab_space_error = 1
 " Minimum lines used for comment syncing (default 50)
 "let vala_minlines = 120
 
-let g:airline_theme='vice'
-
+let g:rust_recommended_style = 0
 
 
 
