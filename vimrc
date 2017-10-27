@@ -62,6 +62,13 @@ Plugin 'vim-airline/vim-airline-themes'
 " Typescript highlighting
 Plugin 'leafgarland/typescript-vim'
 
+" Highlight colors to match
+Plugin 'lilydjwg/colorizer'
+
+" LaTeX rendering
+Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'vim-latex/vim-latex'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -214,6 +221,8 @@ nnoremap <Leader>D mn^cf"// <esc>f\d$`n:delmarks n<CR><C-l>
 nnoremap <Leader>gg :GitGutterToggle<CR>
 nnoremap <Leader>a :AirlineToggle<CR>
 
+nnoremap <Leader>l :LLPStartPreview<CR>
+
 " Reload .vimrc while editing it
 nnoremap <Leader>vim :so %<CR>
 
@@ -248,6 +257,8 @@ let vala_no_tab_space_error = 1
 
 let g:rust_recommended_style = 0
 
+let g:livepreview_previewer = 'zathura'
+let g:Tex_CompileRule_pdf = "pdf"
 
 
 

@@ -57,7 +57,7 @@ plugins=(git npm vi-mode fasd sudo archlinux)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$(ruby -rubygems -e "puts Gem.user_dir")/bin"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$(ruby -rubygems -e "puts Gem.user_dir")/bin:/home/phat_sumo/.android/sdk/platform-tools:/home/phat_sumo/.android/sdk/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,24 +92,25 @@ alias h="cd ~"
 alias cl="clear"
 eval "$(fasd --init)"
 eval $(thefuck --alias)
-alias backsafe="/bin/bash ~/Documents/scripts/backsafe.sh"
-alias clipb="xclip -selection c"
+alias backsafe="/bin/bash ~/Documents/Scripts/backsafe.sh"
 alias lc="sl"
 alias pacsize="expac -s -H M '%m\t%n'"
 alias v="f -e vim"
 alias dup='nohup i3-sensible-terminal --working-directory $PWD >&/dev/null'
 alias updatezsh="upgrade_oh_my_zsh"
 alias addf="vim CMakeLists.txt"
-alias red="$(which zsh) ~/Documents/scripts/redshifting.sh"
+alias red="$(which zsh) ~/Documents/Scripts/redshifting.sh"
 alias cleardown="rm -rf ~/Downloads/*"
 alias godown="cd ~/Downloads"
 alias todo="vim ~/Documents/drive/TODO/todo.md"
 alias clk="tty-clock -btc"
 alias cll="clear && ls"
-alias sinks="/bin/bash ~/Documents/scripts/movesinks.sh"
+alias sinks="/bin/bash ~/Documents/Scripts/movesinks.sh"
 alias reloadzsh=". ~/.zshrc"
 alias bc="bc -q"
 alias music="ncmpcpp"
+alias gpaste="gpaste-client"
+
 
 text () {
   curl http://textbelt.com/text -d number=$1 -d "message=$2" | grep success;
@@ -118,4 +119,8 @@ text () {
 
 
 export BACKGROUND="/home/phat_sumo/Pictures/Backgrounds/vaporwave_delorean.png"
+
 bindkey '^[[Z' reverse-menu-complete
+
+# ROS config stuff 
+alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2 -DPYTHON_INCLUDE_DIR=/usr/include/python2.7 -DPYTHON_LIBRARY=/usr/lib/libpython2.7.so"
