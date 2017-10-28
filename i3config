@@ -2,13 +2,13 @@
 
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# Set the mod key to alt.
-set $mod Mod1
+# Set the mod key to super.
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.  font pango:monospace 8 
 
-font pango:Bitstream Vera Sans Mono Roman 8
+font Inconsolata 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -47,15 +47,15 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Window resizing controls
-bindsym Control+$mod+h resize grow left 1 px or 1 ppt 
-bindsym Control+$mod+j resize grow down 1 px or 1 ppt 
-bindsym Control+$mod+k resize grow up 1 px or 1 ppt 
-bindsym Control+$mod+l resize grow right 1 px or 1 ppt
+bindsym Control+$mod+h resize grow left 3 px or 3 ppt 
+bindsym Control+$mod+j resize grow down 3 px or 3 ppt 
+bindsym Control+$mod+k resize grow up 3 px or 3 ppt 
+bindsym Control+$mod+l resize grow right 3 px or 3 ppt
 
-bindsym Control+$mod+Shift+h resize shrink right 1 px or 1 ppt 
-bindsym Control+$mod+Shift+j resize shrink up 1 px or 1 ppt 
-bindsym Control+$mod+Shift+k resize shrink down 1 px or 1 ppt 
-bindsym Control+$mod+Shift+l resize shrink left 1 px or 1 ppt
+bindsym Control+$mod+Shift+h resize shrink right 3 px or 3 ppt 
+bindsym Control+$mod+Shift+j resize shrink up 3 px or 3 ppt 
+bindsym Control+$mod+Shift+k resize shrink down 3 px or 3 ppt 
+bindsym Control+$mod+Shift+l resize shrink left 3 px or 3 ppt
 
 # split in horizontal orientation
 bindsym $mod+semicolon split h
@@ -119,7 +119,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bar {
         mode hide
         hidden_state hide
-        modifier Mod1
+        modifier Mod4
         tray_output eDP-1
         font pango:Bitstream Vera Sans Mono Roman 8
 
@@ -224,6 +224,9 @@ bindsym XF86KbdBrightnessDown exec keebs dec
 # nmcli_dmenu
 bindsym $mod+Control+Shift+d exec networkmanager_dmenu
 
+# gpaste menu
+bindsym $mod+Control+Shift+s exec gpaste-menu
+
 # i3-gaps settings
 set $default_gaps_inner 10
 set $default_gaps_outer 3
@@ -235,7 +238,7 @@ gaps outer $default_gaps_outer
 #smart_gaps off
 
 # Disable borders / titles
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 # Startup applications
 exec source ~/.zshrc
@@ -243,5 +246,5 @@ exec guake
 exec compton -b
 exec couch
 exec --no-startup-id nm-applet
-exec /home/phat_sumo/Documents/scripts/back.sh
+exec /home/phat_sumo/Documents/Scripts/back.sh
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
